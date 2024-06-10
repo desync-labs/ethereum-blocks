@@ -9,9 +9,9 @@
     "remove-local": "graph remove --node http://localhost:8020/ blocklytics/ethereum-blocks",
     "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 blocklytics/ethereum-blocks",
     
-    "create:k8s": "graph create --node http://graph-service:8020 blocklytics/ethereum-blocks",
-    "remove:k8s": "graph remove --node http://graph-service:8020 blocklytics/ethereum-blocks",
-    "deploy:k8s": "graph deploy --node http://graph-service:8020 --ipfs http://ipfs-service:5001 blocklytics/ethereum-blocks",
+    "create:k8s:apothem": "graph create --node http://apothem-graph-node-service:8020/ blocklytics/ethereum-blocks",
+    "remove:k8s:apothem": "graph remove --node http://apothem-graph-node-service:8020/ blocklytics/ethereum-blocks",
+    "deploy:k8s:apothem": "graph deploy --node http://apothem-graph-node-service:8020/ --ipfs http://ipfs-service:5001 blocklytics/ethereum-blocks",
     
     "prep:apothem:dev": "yarn codegen && yarn build",
 
