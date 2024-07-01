@@ -8,11 +8,11 @@
     "create-local": "graph create --node http://localhost:8020/ blocklytics/ethereum-blocks",
     "remove-local": "graph remove --node http://localhost:8020/ blocklytics/ethereum-blocks",
 
-    "create:k8s": "graph create --node http://graph-service:8020 blocklytics/ethereum-blocks",
-    "remove:k8s": "graph remove --node http://graph-service:8020 blocklytics/ethereum-blocks",
-    "deploy:k8s": "graph deploy --node http://graph-service:8020 --ipfs http://ipfs-service:5001 blocklytics/ethereum-blocks",
+    "create:k8s:xdc": "graph create --node http://xdc-graph-node-service:8020/ blocklytics/ethereum-blocks",
+    "remove:k8s:xdc": "graph remove --node http://xdc-graph-node-service:8020/ blocklytics/ethereum-blocks",
+    "deploy:k8s:xdc": "graph deploy --node http://xdc-graph-node-service:8020/ --ipfs http://ipfs-service:5001 blocklytics/ethereum-blocks",
     
-    "prep:apothem:dev": "yarn codegen && yarn build",
+    "prep:xdc:dev": "yarn codegen && yarn build",
 
     "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 blocklytics/ethereum-blocks",
     "deploy-rinkeby": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ blocklytics/rinkeby-blocks",
