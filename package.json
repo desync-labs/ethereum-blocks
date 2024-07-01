@@ -8,9 +8,9 @@
     "create-local": "graph create --node http://localhost:8020/ blocklytics/ethereum-blocks",
     "remove-local": "graph remove --node http://localhost:8020/ blocklytics/ethereum-blocks",
 
-    "create:k8s:xinfin": "graph create --node http://xdc-graph-node-service:8020/ blocklytics/ethereum-blocks",
-    "remove:k8s:xinfin": "graph remove --node http://xdc-graph-node-service:8020/ blocklytics/ethereum-blocks",
-    "deploy:k8s:xinfin": "graph deploy --node http://xdc-graph-node-service:8020/ --ipfs http://ipfs-service:5001 blocklytics/ethereum-blocks",
+    "create:k8s:xinfin": "graph create --node http://xinfin-graph-node-service:8020/ blocklytics/ethereum-blocks",
+    "remove:k8s:xinfin": "graph remove --node http://xinfin-graph-node-service:8020/ blocklytics/ethereum-blocks",
+    "deploy:k8s:xinfin": "graph deploy --node http://xinfin-graph-node-service:8020/ --ipfs http://ipfs-service:5001 blocklytics/ethereum-blocks",
     
     "prep:xinfin:prod": "yarn codegen && yarn build",
 
