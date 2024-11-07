@@ -6,11 +6,11 @@ schema:
 dataSources:
   - kind: ethereum/contract
     name: ConverterRegistryContract
-    network: mainnet
+    network: {{network}}
     source:
-      address: "0xD79A7C30dE62F68D1e65f0b6D122EAcD03a90B15"
+      address: '{{ConverterRegistryContract}}'
       abi: ConverterRegistryContract
-      startBlock: 47995830
+      startBlock: {{blockNumber}}
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.3

@@ -1,0 +1,28 @@
+{
+    "51": {
+        "dev":{
+            "addresses": {
+                "ConverterRegistryContract":"0xD79A7C30dE62F68D1e65f0b6D122EAcD03a90B15"
+            },
+            "blockNumber":"47995830"
+        },
+        "network":"apothem"
+    },
+    "11155111": {
+        "dev":{
+            "addresses": {
+            },
+            "blockNumber":""
+        },
+        "network":"sepolia"
+    },
+    "50": {
+        "prod": {
+            "addresses": {
+                "ConverterRegistryContract":"0xD79A7C30dE62F68D1e65f0b6D122EAcD03a90B15"
+            },
+            "blockNumber": "59125381"
+        },
+        "network":"xdc"
+    }
+}
