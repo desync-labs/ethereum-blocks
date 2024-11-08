@@ -2,27 +2,36 @@
   "name": "ethereum-blocks",
   "license": "UNLICENSED",
   "scripts": {
+    "clean": "rm -rf build/ generated/ config/addresses.ts config/generatedAddresses.json subgraph.yaml",
     "codegen": "graph codegen",
     "build": "graph build",
     "deploy": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ blocklytics/ethereum-blocks",
     "create-local": "graph create --node http://localhost:8020/ blocklytics/ethereum-blocks",
     "remove-local": "graph remove --node http://localhost:8020/ blocklytics/ethereum-blocks",
     "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 blocklytics/ethereum-blocks",
-    
     "create:k8s:apothem": "graph create --node http://apothem-graph-node-service:8020/ blocklytics/ethereum-blocks",
     "remove:k8s:apothem": "graph remove --node http://apothem-graph-node-service:8020/ blocklytics/ethereum-blocks",
     "deploy:k8s:apothem": "graph deploy --node http://apothem-graph-node-service:8020/ --ipfs http://ipfs-service:5001 blocklytics/ethereum-blocks",
-    
     "prep:apothem:dev": "yarn codegen && yarn build",
-
     "deploy-rinkeby": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ blocklytics/rinkeby-blocks",
     "deploy-kovan": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ blocklytics/kovan-blocks",
     "deploy-goerli": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ blocklytics/goerli-blocks",
     "deploy-ropsten": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ blocklytics/ropsten-blocks",
-    "deploy-poa": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ blocklytics/poa-core-blocks"
+    "deploy-poa": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ blocklytics/poa-core-blocks",
+
+    "create:k8s:apothem-public-node": "graph create --node https://graph.apothem.network/ fathom-blocklytics/ethereum-blocks",
+    "remove:k8s:apothem-public-node": "graph remove --node https://graph.apothem.network/ fathom-blocklytics/ethereum-blocks",
+    "deploy:k8s:apothem-public-node": "graph deploy --node https://graph.apothem.network/ --ipfs https://ipfs.apothem.network --version-label v1.0.0 fathom-blocklytics/ethereum-blocks",
+
+    "prep:addresses:apothem-public-node:dev": "ts-node config/apothemAddressScript.ts dev && mustache ./config/generatedAddresses.json ./config/addresses.template.ts > ./config/addresses.ts",
+    "prep:apothem-public-node:dev": "yarn clean && yarn prep:addresses:apothem-public-node:dev && mustache ./config/generatedAddresses.json subgraph.template.yaml > subgraph.yaml && graph codegen && graph build"
   },
   "dependencies": {
     "@graphprotocol/graph-cli": "^0.20.0",
-    "@graphprotocol/graph-ts": "0.17.0"
+    "@graphprotocol/graph-ts": "0.17.0",
+    "mustache": "^4.2.0"
+  },
+  "devDependencies": {
+    "@types/mustache": "^4.2.5"
   }
 }
